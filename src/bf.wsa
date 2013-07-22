@@ -19,6 +19,12 @@ readLoop:
 	jz loopEnd	; end loop if enter
 
 	dup
+	push '!' 
+	sub
+	jz loopEnd	; end loop if '!' (Extension to the language)
+                ; Everything afterwards is input.
+
+	dup
 	push '>'	; Check if '>'
 	sub
 	jz incPP
@@ -364,3 +370,4 @@ runLoopContinue:
 	jmp runLoop	; continue with run
 endProgram:	
 	end
+
